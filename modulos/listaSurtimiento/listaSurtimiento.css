@@ -1,14 +1,45 @@
 .form{
+ margin-left: 50%;
  width: 40%;
  border: none;
  border-bottom: solid 1px black;
  outline: none;
+ font-size: 1.2vw;
 }
 
 .form-btn{
  width: auto;
+ border: none;
  border-radius: solid 1px black;
  background-color: white;
  color: black;
  cursor: pointer;
+ outline: none;
+ font-size: 1.2vw;
+ padding-left: 5px;
+ padding-right: 5px;
+}
+
+.form-btn:hover{
+    background-color: #436d42;
+    color: white;
+    border-radius: 1vw;
+}
+
+#cuerpo_opcion{
+    margin-top: 3%;
+    display:flex;
+    flex:1;
+    flex-wrap:nowrap;
+    padding: 1%;
+}
+
+#chart{
+    width:50%;
+    height:50%;
+}
+
+#wrapp{
+    width:50%;
+    height:50%;
 }

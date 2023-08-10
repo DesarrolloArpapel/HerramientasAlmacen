@@ -8,7 +8,9 @@ export function listaSurtimiento (){
     //? Agregaoms los botones input:folio y input:buscar
     $('#opcion').append(  
         '<input id="folio" class="form" type="text" placeholder="Ingresa el Folio">'+  
-        '<input id="buscar" class="form-btn" type="button" value="Buscar" >'
+        '<input id="buscar" class="form-btn" type="button" value="Buscar" >'+
+        '<div id="cuerpo_opcion"></div>'
+
     );
     
     //? Evento al realizar click en el input:buscar
@@ -16,7 +18,7 @@ export function listaSurtimiento (){
 
         //? Tomamos los valores de los input:folio y input:buscar
         var folio = $('#folio').val()
-        listaSurtimientoAjax(folio)
+        listaSurtimientoAjax(folio);
     })
 
 

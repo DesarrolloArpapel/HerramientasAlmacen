@@ -1,9 +1,13 @@
 @import url(../modulos/listaSurtimiento/listaSurtimiento.css);
-
+@import url(../plugins/cdn.jsdelivr.net_npm_gridjs_dist_theme_mermaid.min.css);
 
 *{
     margin: 0;
     padding: 0;
+}
+
+body{
+    background-color: rgba(242, 255, 242, 0.45);
 }
 
 /***||||||***/
@@ -21,27 +25,31 @@
 /***||||||***/
 .menu{
    display: flex;
-   width: 70%;
-   height: 70%;
+   width: 85%;
+   height: 85%;
    flex-wrap: wrap;
+   box-shadow: 0 0 20vw 1vw #52794d;
+   border-radius: 20px;
 }
 
 .navbar{
    display: flex;
    width: 100%;
-   background-color: #0a0a0a;
+   background-color: #52794d;
    height: 10%;
    color: white;
    justify-content: center;
    align-items: center;
    font-size: 2vw;
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
 }
 
 .cuerpo_menu{
    display: flex;
    height: 90%;
    width: 100%;
-   background-color: rgba(218, 216, 216, 0.568);
+   background-color: rgb(221, 226, 208);
 }
 
 .opciones_menu{
@@ -59,19 +67,21 @@
     font-size: 1.2vw;
     cursor: pointer;
     border: none;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px #52794d;
     background-color: transparent;
     outline: none;
+    color: #52794d;
 }
 
 .opcion:hover{
-    background-color: #0a0a0a;
+    background-color: #52794d;
     color: white;
+    border-radius: 1vw;
 }
 
 .visualizacion_menu{
     width: 70%;
-    height: 100%;
+    height: 95%;
     background-color: white;
     padding: 1%;
 }
