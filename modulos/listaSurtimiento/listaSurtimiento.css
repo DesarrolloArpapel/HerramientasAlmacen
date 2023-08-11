@@ -21,7 +21,7 @@
 }
 
 .form-btn:hover{
-    background-color: #436d42;
+    background-color: #000000;
     color: white;
     border-radius: 1vw;
 }
@@ -32,6 +32,15 @@
     flex:1;
     flex-wrap:nowrap;
     padding: 1%;
+}
+
+#titulo{
+    margin-top: 2%;
+    background-color:#436d42;
+    color: white;
+    font-size: 2vw;
+    text-align:center;
+    border-radius: 1vw;
 }
 
 #chart{

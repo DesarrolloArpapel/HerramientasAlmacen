@@ -2,8 +2,10 @@
 
 // ! Importamos las funciones
 import {listaSurtimiento} from "../modulos/listaSurtimiento/listaSurtimiento.js";
+import {embarqueportarima} from "../modulos/embarqueportarima/embarqueportarima.js";
 
 //TODO: Este escript esta generado para escuchar el click de los botones 
 
 $('#opcion1').click(function(){ listaSurtimiento() });
+$('#opcion2').click(function(){ embarqueportarima() });
 
