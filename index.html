@@ -1,47 +1,85 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Herramientas almacen</title>
-    <link rel="stylesheet" href="plugins/apexcharts.css">
-    <link rel="stylesheet" href="CSS/global.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="plugins/apexcharts.css" />
+    <link rel="stylesheet" href="CSS/global.css" />
+  </head>
+  <body>
     <div class="contenedor">
-        
-        <div class="menu">
-            <div class="navbar">
-             Herramientas de almacen
-            </div>
-            <div class="cuerpo_menu">
+      <div class="menu">
+        <div class="navbar">Herramientas de almacen</div>
+        <div class="cuerpo_menu">
+          <div class="opciones_menu">
+            <input
+              id="opcion1"
+              type="button"
+              class="opcion"
+              value="Lista de surtimiento"
+            />
 
-                <div class="opciones_menu">
-                    <input id="opcion1" type="button" class="opcion" value="Lista de surtimiento">
-                    <input id="opcion2" type="button" class="opcion" value="Embarque por tarima">
-                    <input id="opcion3" type="button" class="opcion" value="Asignar tarima">
-                    <input id="opcion4" type="button" class="opcion" value="Guias asignadas">
-                    <input id="opcion5" type="button" class="opcion" value="Acta de nacimiento">
-                    <input id="opcion6" type="button" class="opcion" value="Tarima de embarque">
-                    <input id="opcion7" type="button" class="opcion" value="Tarima por lista de surtimiento">
-                 </div>
+            <input
+              id="opcion2"
+              type="button"
+              class="opcion"
+              value="Embarque por tarima"
+            />
 
-                 <div class="visualizacion_menu" id="opcion"></div>
-            </div>
+            <input
+              id="opcion3"
+              type="button"
+              class="opcion"
+              value="Asignar tarima"
+            />
+
+            <input
+              id="opcion4"
+              type="button"
+              class="opcion"
+              value="Guias asignadas"
+            />
+
+            <input
+              id="opcion5"
+              type="button"
+              class="opcion"
+              value="Acta de nacimiento"
+            />
+
+            <input
+              id="opcion6"
+              type="button"
+              class="opcion"
+              value="Tarima de embarque"
+            />
+
+            <input
+              id="opcion7"
+              type="button"
+              class="opcion"
+              value="Tarima por lista de surtimiento"
+            />
+
+            <input
+              id="opcion8"
+              type="button"
+              class="opcion"
+              value="Entrega de lista de surtimiento"
+            />
+          </div>
+
+          <div class="visualizacion_menu" id="opcion"></div>
         </div>
-
+      </div>
     </div>
+  </body>
+  <script src="plugins/code.jquery.com_jquery-3.7.0.min.js"></script>
+  <script type="module">
+    import { Grid, html } from "https://unpkg.com/gridjs?module";
+  </script>
+  <script src="plugins/apexcharts.min.js"></script>
 
-</body>
-<script src="plugins/code.jquery.com_jquery-3.7.0.min.js"></script>
-<script type="module">
-    import {
-    Grid,
-    html
-    } from "https://unpkg.com/gridjs?module";
-</script>
-<script src="plugins/apexcharts.min.js"></script>
-
-<script src="JS/global.js" type="module"></script>
+  <script src="JS/global.js" type="module"></script>
 </html>
