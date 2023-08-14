@@ -1,48 +1,38 @@
 ﻿import { embarqueportarimaAjax } from "./embarqueportarimaAjax.js";
+import { cambiarTema } from "../compartidos/cambiartema.js";
 
 export function embarqueportarima() {
   //? Llamamos la función cambiarTema para editar la paleta de colores
-  cambiarTema();
+  cambiarTema("rgb(203, 244, 255)", "#4d6679");
 
   //? Borramos la opcion anterior que se estaba ejecutando y nombramos el titulo
   $("#opcion").empty();
   $(".navbar").text("Embarque por tarima");
 
-  //? Agregaoms los botones input:folio y input:buscar
+  //? Agregamos un checbox
   $("#opcion").append(
-    '<input id="folio" class="form" type="text" placeholder="Ingresa el Folio">' +
-      '<input id="buscar" class="form-btn" type="button" value="Buscar" >' +
-      '<h1 id="titulo"></h1>' +
-      '<div id="cuerpo_opcion"></div>'
+    '<input id="radio1" class="radio" type="checkbox" title="Click si es por tarima">Embarque por tarima' +
+      '<input id="radio2" class="radio" type="checkbox" title="Click si es por jaula"> Embarque por super'
   );
 
-  //? Evento al realizar click en el input:buscar
-  $("#buscar").click(function () {
-    //? Tomamos los valores de los input:folio y input:buscar
-    var folio = $("#folio").val();
-    embarqueportarimaAjax(folio);
+  //? Llamamos las classes de CSS a la pagina
+  classesCss();
+
+  //TODO: Funciones de los eventos click en los checkbox, para evitar chequeo en los dos
+  $("#radio1").click(function () {
+    $("#radio2").prop("checked", false);
+  });
+
+  $("#radio2").click(function () {
+    $("#radio1").prop("checked", false);
   });
 }
 
-function cambiarTema() {
-  $(".menu").css({
-    "box-shadow": "0 0 20vw 1vw #4d6679",
-    transition: "0.5s",
-  });
-
-  $(".navbar").css({
-    "background-color": "#4d6679",
-    transition: "0.5s",
-  });
-
-  $(".cuerpo_menu").css({
-    "background-color": "rgb(203, 244, 255)",
-    transition: "0.5s",
-  });
-
-  $(".opcion").css({
-    "border-bottom": "solid 1px #4d6679",
-    color: "#4d6679",
-    transition: "0.5s",
+//TODO: Funcion que da los estilos de CSS a los items solo a esta pagina
+function classesCss() {
+  $(".radio").css({
+    cursor: "pointer",
+    "background-color": "red",
+    "margin-left": "1vw",
   });
 }

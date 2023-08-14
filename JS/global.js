@@ -1,5 +1,8 @@
 // * Este es el javascript principal de la aplicación//
 
+// ! Importamos Grid.js
+import { Grid, html } from "https://unpkg.com/gridjs?module";
+
 // ! Importamos las funciones
 import { listaSurtimiento } from "../modulos/listaSurtimiento/listaSurtimiento.js";
 import { embarqueportarima } from "../modulos/embarqueportarima/embarqueportarima.js";

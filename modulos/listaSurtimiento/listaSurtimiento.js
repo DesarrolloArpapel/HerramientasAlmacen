@@ -1,8 +1,9 @@
 import { listaSurtimientoAjax } from "./listaSurtimientoAjax.js";
+import { cambiarTema } from "../compartidos/cambiartema.js";
 
 export function listaSurtimiento() {
   //? Llamamos la función cambiarTema para editar la paleta de colores
-  cambiarTema();
+  cambiarTema("rgb(220, 255, 203)", "#52794d");
 
   //? Borramos la opcion anterior que se estaba ejecutando y nombramos el titulo
   $("#opcion").empty();
@@ -21,28 +22,5 @@ export function listaSurtimiento() {
     //? Tomamos los valores de los input:folio y input:buscar
     var folio = $("#folio").val();
     listaSurtimientoAjax(folio);
-  });
-}
-
-function cambiarTema() {
-  $(".menu").css({
-    "box-shadow": "0 0 20vw 1vw #52794d",
-    transition: "0.5s",
-  });
-
-  $(".navbar").css({
-    "background-color": "#52794d",
-    transition: "0.5s",
-  });
-
-  $(".cuerpo_menu").css({
-    "background-color": "rgb(220, 255, 203)",
-    transition: "0.5s",
-  });
-
-  $(".opcion").css({
-    "border-bottom": "solid 1px #52794d",
-    color: "#52794d",
-    transition: "0.5s",
   });
 }
