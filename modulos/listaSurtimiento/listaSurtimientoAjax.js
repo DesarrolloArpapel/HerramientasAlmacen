@@ -2,17 +2,27 @@ import {Grid,html} from "https://unpkg.com/gridjs@6.0.6/dist/gridjs.module.js?mo
 
 export function listaSurtimientoAjax (folio){
 
-$('#cuerpo_opcion').empty();
+    //? Limpiamos el contenido de los contenedores "cuerpo_opcion" y "titulo"
+    $('#cuerpo_opcion').empty();
+    $('#titulo').empty();
 
-$('#cuerpo_opcion').append(
-    '<h5 id="titulo"></h5>'+
-    '<div id="chart"></div>'+
-    '<div id="wrapper"></div>'
-)
+    //? Agregamos cajas a la opcion "cuerpo_opcion"
+    $('#cuerpo_opcion').append(
+      '<h5 id="titulo"></h5>'+
+      '<div id="chart"></div>'+
+      '<div id="wrapper"></div>'
+     )
 
-var datatable=[];
-var cajas3;
+    //? Limpiamos el input "folio" y colocamos el puntero sobre el
+    $('#folio').val('');
+    $('#folio').focus();
 
+    //? Creamos un array limpio que contendra la información para una tabla
+    //? al igual que una variable cajas3 con el porcentaje de avance
+    var datatable=[];
+    var cajas3;
+
+    //? Creamos una conexion con ajax y C# para la consulta de datos con el dato folio
 $.ajax({
   type: "POST",
   url: 'modulos/listaSurtimiento/listasurtimiento.aspx/lista_surtimiento',
@@ -30,23 +40,34 @@ $.ajax({
               eval('(' + response.d + ')') :
               response.d;
           var cajas_escaneadas=0;
+
+          //? - Si existe información la tomaremos con un bucle "for" y  la añaderimos al array que contiene 
+          //? - la información de la tabla
           for (var i = 0; i < resultado.length; i++) {
+
+              //TODO: Valores de la consulta
               var almacenista = (resultado[i].almacenista_);
               var id_almacenista = (resultado[i].id_almacenista_);
               var cajas = (resultado[i].cajas_);
-
-              cajas_escaneadas = cajas_escaneadas + parseInt(cajas);
-
               var factura = (resultado[i].factura_);
               var cajas_totales = (resultado[i].cajas2_);
 
+              //? - Esta variable suma el dato de cajas para conseguir el total de ellas que han sido escaneadas
+              cajas_escaneadas = cajas_escaneadas + parseInt(cajas);
+
+              //? - Este calculo realiza una regla de 3 para poder saber el porcentaje de avance 
               var num1 = cajas_escaneadas * 100;
               cajas3 = parseInt(num1 / cajas_totales );
 
+              //? - Agregamo las información del folio a la caja "titulo" [Factura, folio, cajas]
               $('#titulo').text("Factura: "+ factura + " -- " + folio + " | Cajas:" +cajas_totales);
+
+              //? - Agregamos los datos [Id almacenista, nombre almacenista, cajas escaneadas] al array datatable 
               datatable.push({id: id_almacenista, nombre: almacenista , cajas2: cajas});
+
           }
 
+          //TODO: - Esta constante es la configuracion de la tabla que mostrara los datos del array datatable
           const grid = new Grid({
               columns: [{id:'id', name:'#ID'},{id:'nombre', name:'Nombre'}, {id:'cajas2', name:'Cajas'}],
               pagination:{ limit: 5},
@@ -60,6 +81,7 @@ $.ajax({
               }
           }).render(document.getElementById("wrapper"));
 
+          //TODO: - Esta variable es la configuracion de la grafica que mostrara los datos del porcentaje de avance
           var options = {
               series: [cajas3],
               chart: {
@@ -81,6 +103,7 @@ $.ajax({
               labels: ['Avance']
           };
 
+          //? - Esta variable renderiza la grafica
           var chart = new ApexCharts(document.querySelector("#chart"), options);
           chart.render();
 

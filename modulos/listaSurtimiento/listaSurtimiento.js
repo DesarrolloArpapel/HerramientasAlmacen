@@ -17,10 +17,15 @@ export function listaSurtimiento() {
       '<div id="cuerpo_opcion"></div>'
   );
 
+  //? Colocamos el puntero en el form folio
+  $('#folio').focus();
+
   //? Evento al realizar click en el input:buscar
   $("#buscar").click(function () {
+
     //? Tomamos los valores de los input:folio y input:buscar
     var folio = $("#folio").val();
     listaSurtimientoAjax(folio);
+
   });
 }

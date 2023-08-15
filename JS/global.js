@@ -5,7 +5,7 @@ import { Grid, html } from "https://unpkg.com/gridjs?module";
 
 // ! Importamos las funciones
 import { listaSurtimiento } from "../modulos/listaSurtimiento/listaSurtimiento.js";
-import { embarqueportarima } from "../modulos/embarqueportarima/embarqueportarima.js";
+import { embarque } from "../modulos/embarque/embarque.js";
 import { asignartarima } from "../modulos/asignartarima/asignartarima.js";
 import { guiasasignadas } from "../modulos/guiasasignadas/guiasasignadas.js";
 import { actanacimiento } from "../modulos/actanacimiento/actanacimineto.js";
@@ -20,7 +20,7 @@ $("#opcion1").click(function () {
 });
 
 $("#opcion2").click(function () {
-  embarqueportarima();
+  embarque();
 });
 
 $("#opcion3").click(function () {
