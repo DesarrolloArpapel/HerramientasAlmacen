@@ -23,10 +23,11 @@ export function embarqueporsuper (relacion){
                 var cajas_escaneadas=0;
                 $('#cuerpo_opcion').append(
                     '<div class="form2">'+
-                    '<input type="search" id="factura" class="factura" placeholder="Factura">'+
-                    '<input type="button" id="ingresar" class="ingresar" value="Ingresar">'+
+                    '<input type="text" id="factura" class="factura" placeholder="Factura">'+
+                    '<input type="button" onclick="prueba();" id="ingresar" class="ingresar" value="Ingresar">'+
                     '</div>'+
-                    '<div id="wrapper"></div>'
+                    '<div id="wrapper"></div>'+
+                    '<script>$("#factura").click(function (){ alert(); });</script>'
                     )
                 //? - Si existe información la tomaremos con un bucle "for" 
                 for (var i = 0; i < resultado.length; i++) {
@@ -53,13 +54,13 @@ export function embarqueporsuper (relacion){
                         th:{'background-color':'#4d6679', color:'white'}
                     }
                 }).render(document.getElementById("wrapper"));
-                estilosCss ();
-              
+                estilosCss();
+                $('#factura').empty();
+                $('#factura').focus();
             }
         },
         error: function () { }
     });
-
 }
 
 function estilosCss (){
@@ -86,6 +87,8 @@ function estilosCss (){
         "padding-left": "5px",
         "padding-right": "5px",
         "font-size": "1.2vw",
-        outline: "none"
+        outline: "none",
+        "margin-bottom": "1vw"
     })
+
 }

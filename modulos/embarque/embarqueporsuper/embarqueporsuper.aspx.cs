@@ -116,29 +116,29 @@ public partial class modulos_embarque_embarqueporsuper_embarqueporsuper : System
                     cmd_insert.ExecuteNonQuery();
                     conn_insert.Close();
 
-                    DataSet ds_qad_ = new DataSet();
-                    OdbcCommand cmd_qad_ = new OdbcCommand();
-                    OdbcConnection conn_qad_ = new OdbcConnection(ConnString_qad);
-                    cmd_qad_.Connection = conn_qad_;
-                    cmd_qad_.CommandType = CommandType.Text;
-                    cmd_qad_.CommandText = string.Format(@"
+                    DataSet ds_qad2 = new DataSet();
+                    OdbcCommand cmd_qad2 = new OdbcCommand();
+                    OdbcConnection conn_qad2 = new OdbcConnection(ConnString_qad);
+                    cmd_qad2.Connection = conn_qad2;
+                    cmd_qad2.CommandType = CommandType.Text;
+                    cmd_qad2.CommandText = string.Format(@"
                     SELECT 
                     PUB.""lsd-det"".""lsd-domain"", 
                     PUB.""lsd-det"".""lsd-doc"", 
                     PUB.""lsd-det"".""lsd-folio""              
                     FROM PUB.""lsd-det"" 
-                    WHERE ""lsd-domain""= ('{0}')
-                    AND ""lsd-doc"" IN ({1})
+                    WHERE ""lsd-domain"" = ('{0}')
+                    AND ""lsd-doc"" = ('{1}')
                     WITH (NOLOCK)
                     ", dominio, factura1);
-                    OdbcDataAdapter da_qad_ = new OdbcDataAdapter(cmd_qad_);
-                    conn_qad_.Open();
-                    cmd_qad_.ExecuteNonQuery();
-                    conn_qad_.Close();
-                    da_qad_.Fill(ds_qad_, "lsd_det");
-                    if (ds_qad_.Tables[0].Rows.Count > 0)
+                    OdbcDataAdapter da_qad2 = new OdbcDataAdapter(cmd_qad2);
+                    conn_qad2.Open();
+                    cmd_qad2.ExecuteNonQuery();
+                    conn_qad2.Close();
+                    da_qad2.Fill(ds_qad2, "lsd_det");
+                    if (ds_qad2.Tables[0].Rows.Count > 0)
                     {
-                        string lista = ds_qad_.Tables[0].Rows[0]["lsd-folio"].ToString();
+                        string lista = ds_qad2.Tables[0].Rows[0]["lsd-folio"].ToString();
 
                         SqlCommand cmd_insert2 = new SqlCommand();
                         SqlConnection conn_insert2 = new SqlConnection(sql);
@@ -149,7 +149,7 @@ public partial class modulos_embarque_embarqueporsuper_embarqueporsuper : System
                         (DOMINIO, EMBARQUE, LISTA, FACTURA)
                         VALUES
                         ('{0}', '{1}', '{2}', '{3}')",
-                        dominio, embarque, lista, factura);
+                        dominio, embarque, lista, factura1);
                         conn_insert2.Open();
                         cmd_insert2.ExecuteNonQuery();
                         conn_insert2.Close();
