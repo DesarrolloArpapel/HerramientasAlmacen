@@ -34,6 +34,13 @@ $.ajax({
       console.log(response);
       console.log(Object.keys(response.d).length);
       if (Object.keys(response.d).length === 2) {
+          Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: "No se encontro la lista",
+              showConfirmButton: false,
+              timer: 1500
+          });
       }
       else {
           var resultado = (typeof response.d) == 'string' ?

@@ -20,6 +20,11 @@ export function listaSurtimiento() {
   //? Colocamos el puntero en el form folio
   $('#folio').focus();
 
+    //? Al cambiar el texto en el ID "folio" hacemos click en el boton "buscar"
+  $('#folio').change(function(){
+      $('#buscar').click();
+  });
+
   //? Evento al realizar click en el input:buscar
   $("#buscar").click(function () {
 

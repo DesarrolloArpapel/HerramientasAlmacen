@@ -1,6 +1,6 @@
 export function cambiarTema(color1, color2) {
   $(".menu").css({
-    "box-shadow": "0 0 0vw 0px " + color1,
+    "box-shadow": "0 0 20vw 1vw " + color1,
     transition: "0.2s",
   });
 
@@ -19,4 +19,13 @@ export function cambiarTema(color1, color2) {
     color: color2,
     transition: "0.2s",
   });
+
+  $('.botonClick').css({
+      'background-color': '#184fe9',
+      'padding': '3px',
+      'color': 'white',
+      'cursor': 'pointer',
+      'border-radius': '10px'
+  });
+
 }

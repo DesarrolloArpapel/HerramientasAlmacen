@@ -11,10 +11,10 @@ export function embarque() {
 
   //? Agregamos 2 checbox y un boton buscar
   $("#opcion").append(
-    '<input id="radio1" class="radio" type="checkbox" title="Click si es por tarima"> Embarque por tarima' +
-    '<input id="radio2" class="radio" type="checkbox" title="Click si es por jaula"> Embarque por super'  +
+    '<input id="radio1" class="radio" type="radio" title="Click si es por tarima" disabled> Embarque por tarima' +
+    '<input id="radio2" class="radio" type="radio" title="Click si es por jaula"> Embarque por super'  +
     '<input id="relacion" class="relacion" type="search" title="Anote su relación de embarque" placeholder="Relación de embarque">'  +
-    '<input id="buscar" class="buscar" type="button" title="Click para buscar la relación" value="Buscar">'+
+    '<input id="buscar" class="buscar" type="button" title="Click para buscar la relación" value="Buscar" disabled>'+
     '<h1 id="titulo"></h1>' +
     '<div id="cuerpo_opcion"></div>'
   );
@@ -29,6 +29,11 @@ export function embarque() {
 
   $("#radio2").click(function () {
     $("#radio1").prop("checked", false);
+  });
+
+  //? Al cambiar el texto en el ID "relacion" hacemos click en el boton buscar
+  $("#relacion").change(function(){
+      $("#buscar").click();
   });
 
   //? Escuchamos el evento click del boton y ejecutamos la funcion deacuerdo a su elección
