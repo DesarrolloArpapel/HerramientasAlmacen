@@ -1,4 +1,5 @@
 import { cambiarTema } from "../compartidos/cambiartema.js";
+import { buscador } from "./componentes/tarimalistasuertimientoCom.js"
 
 export function tarimalistasurtimiento() {
   //? Llamamos la función cambiarTema para editar la paleta de colores
@@ -7,4 +8,5 @@ export function tarimalistasurtimiento() {
   //? Borramos la opcion anterior que se estaba ejecutando y nombramos el titulo
   $("#opcion").empty();
   $(".navbar").text("Tarima por lista de surtimiento");
+  buscador();
 }

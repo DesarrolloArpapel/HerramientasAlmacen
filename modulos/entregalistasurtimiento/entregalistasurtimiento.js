@@ -1,4 +1,5 @@
 import { cambiarTema } from "../compartidos/cambiartema.js";
+import {buscar} from "./componentes/entregalistasurtimientocom.js";
 
 export function entregalistasurtimiento() {
   //? Llamamos la función cambiarTema para editar la paleta de colores
@@ -7,4 +8,5 @@ export function entregalistasurtimiento() {
   //? Borramos la opcion anterior que se estaba ejecutando y nombramos el titulo
   $("#opcion").empty();
   $(".navbar").text("Entrega de lista de surtimiento");
+  buscar();
 }

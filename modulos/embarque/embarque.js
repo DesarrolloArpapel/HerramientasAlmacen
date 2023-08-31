@@ -7,11 +7,10 @@ export function embarque() {
 
   //? Borramos la opcion anterior que se estaba ejecutando y nombramos el titulo
   $("#opcion").empty();
-  $(".navbar").text("Embarque por tarima");
+  $(".navbar").text("Embarque por super");
 
   //? Agregamos 2 checbox y un boton buscar
   $("#opcion").append(
-    '<input id="radio1" class="radio" type="radio" title="Click si es por tarima" disabled> Embarque por tarima' +
     '<input id="radio2" class="radio" type="radio" title="Click si es por jaula"> Embarque por super'  +
     '<input id="relacion" class="relacion" type="search" title="Anote su relación de embarque" placeholder="Relación de embarque">'  +
     '<input id="buscar" class="buscar" type="button" title="Click para buscar la relación" value="Buscar" disabled>'+
@@ -23,12 +22,9 @@ export function embarque() {
   classesCss();
 
   //TODO: Funciones de los eventos click en los checkbox, para evitar chequeo en los dos
-  $("#radio1").click(function () {
-    $("#radio2").prop("checked", false);
-  });
 
   $("#radio2").click(function () {
-    $("#radio1").prop("checked", false);
+      $("#relacion").focus();
   });
 
   //? Al cambiar el texto en el ID "relacion" hacemos click en el boton buscar
